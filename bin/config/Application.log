@@ -1,0 +1,160 @@
+14/03/2017 15:26:25 devpinoyLogger Executing the test Navigate
+14/03/2017 15:26:25 devpinoyLogger Executing Navigate
+14/03/2017 15:26:32 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:26:32 devpinoyLogger Error came
+14/03/2017 15:26:32 devpinoyLogger ######################Navigate --- Pass
+14/03/2017 15:26:32 devpinoyLogger Executing the test Google_001
+14/03/2017 15:26:32 devpinoyLogger Executing Isdisplayed Keyword
+14/03/2017 15:26:44 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:26:44 devpinoyLogger Executing Isdisplayed Keyword
+14/03/2017 15:26:54 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:26:54 devpinoyLogger Executing Isdisplayed Keyword
+14/03/2017 15:27:04 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:04 devpinoyLogger Executing Isdisplayed Keyword
+14/03/2017 15:27:14 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:14 devpinoyLogger ######################Google_001 --- Pass
+14/03/2017 15:27:14 devpinoyLogger Executing the test VerifyGApp_002
+14/03/2017 15:27:14 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:27:15 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:15 devpinoyLogger Executing GetLink Keyword
+14/03/2017 15:27:40 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:40 devpinoyLogger Executing back to the webpage
+14/03/2017 15:27:52 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:52 devpinoyLogger ######################VerifyGApp_002 --- Pass
+14/03/2017 15:27:53 devpinoyLogger Executing the test VerifyGAElements_003
+14/03/2017 15:27:53 devpinoyLogger Executing Navigate
+14/03/2017 15:27:54 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:54 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:27:55 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:55 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:27:59 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:59 devpinoyLogger Executing the page title Keyword
+14/03/2017 15:27:59 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:59 devpinoyLogger Executing GetText Keyword
+14/03/2017 15:27:59 devpinoyLogger Got the text for:  MyAccountText----My Account
+14/03/2017 15:27:59 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:27:59 devpinoyLogger Executing back to the webpage
+14/03/2017 15:28:10 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:10 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:28:10 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:10 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:28:13 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:13 devpinoyLogger Executing the page title Keyword
+14/03/2017 15:28:14 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:14 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:28:15 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:15 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:28:15 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:15 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:28:15 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:15 devpinoyLogger Executing back to the webpage
+14/03/2017 15:28:26 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:26 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:28:26 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:26 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:28:33 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:33 devpinoyLogger Executing the page title Keyword
+14/03/2017 15:28:35 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:35 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:28:36 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:36 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:28:36 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:36 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:28:37 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:37 devpinoyLogger Executing back to the webpage
+14/03/2017 15:28:48 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:48 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:28:48 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:48 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:28:59 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:59 devpinoyLogger Executing the page title Keyword
+14/03/2017 15:28:59 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:59 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:28:59 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:59 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:28:59 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:28:59 devpinoyLogger Executing back to the webpage
+14/03/2017 15:29:10 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:10 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:29:10 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:10 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:29:12 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:12 devpinoyLogger Executing the page title Keyword
+14/03/2017 15:29:12 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:12 devpinoyLogger Executing GetText Keyword
+14/03/2017 15:29:14 devpinoyLogger Got the text for:  NewsText1----News
+14/03/2017 15:29:14 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:14 devpinoyLogger Executing GetText Keyword
+14/03/2017 15:29:14 devpinoyLogger Got the text for:  NewsText2----Top Stories
+14/03/2017 15:29:14 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:14 devpinoyLogger Executing back to the webpage
+14/03/2017 15:29:24 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:24 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:29:25 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:25 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:29:29 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:29 devpinoyLogger Executing the page title Keyword
+14/03/2017 15:29:30 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:30 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:29:30 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:30 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:29:30 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:30 devpinoyLogger Executing back to the webpage
+14/03/2017 15:29:41 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:41 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:29:41 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:41 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:29:46 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:46 devpinoyLogger Executing the page title Keyword
+14/03/2017 15:29:46 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:46 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:29:46 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:46 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:29:46 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:46 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:29:46 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:46 devpinoyLogger Executing back to the webpage
+14/03/2017 15:29:56 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:56 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:29:57 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:29:57 devpinoyLogger Executing Dynamic element present Keyword
+14/03/2017 15:30:01 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:30:01 devpinoyLogger Executing the page title Keyword
+14/03/2017 15:30:01 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:30:01 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:30:01 devpinoyLogger ***Result of execution -- Pass
+14/03/2017 15:30:01 devpinoyLogger Executing Is Element Present Keyword
+14/03/2017 15:30:31 devpinoyLogger Error while element not displayed -GooglePlusLogono such element: Unable to locate element: {"method":"xpath","selector":".//*[@id='yDmH0d']/c-wiz/div[4]/div[1]/c-wiz/div/div/div[1]/div[1]/a"}
+  (Session info: chrome=57.0.2987.98)
+  (Driver info: chromedriver=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed),platform=Windows NT 6.1.7601 SP1 x86) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.10 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 16:57:40'
+System info: host: 'Sachin-PC', ip: '192.168.100.1', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed), userDataDir=C:\Users\Sachin\AppData\Local\Temp\scoped_dir3048_3539}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.98, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 4a31816e56eceead879cf572f02dae98
+*** Element info: {Using=xpath, value=.//*[@id='yDmH0d']/c-wiz/div[4]/div[1]/c-wiz/div/div/div[1]/div[1]/a}
+14/03/2017 15:30:31 devpinoyLogger ***Result of execution -- Fail - no such element: Unable to locate element: {"method":"xpath","selector":".//*[@id='yDmH0d']/c-wiz/div[4]/div[1]/c-wiz/div/div/div[1]/div[1]/a"}
+  (Session info: chrome=57.0.2987.98)
+  (Driver info: chromedriver=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed),platform=Windows NT 6.1.7601 SP1 x86) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.10 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 16:57:40'
+System info: host: 'Sachin-PC', ip: '192.168.100.1', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed), userDataDir=C:\Users\Sachin\AppData\Local\Temp\scoped_dir3048_3539}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.98, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 4a31816e56eceead879cf572f02dae98
+*** Element info: {Using=xpath, value=.//*[@id='yDmH0d']/c-wiz/div[4]/div[1]/c-wiz/div/div/div[1]/div[1]/a}
+14/03/2017 15:30:41 devpinoyLogger Error came
+14/03/2017 15:30:41 devpinoyLogger ######################VerifyGAElements_003 --- Fail - no such element: Unable to locate element: {"method":"xpath","selector":".//*[@id='yDmH0d']/c-wiz/div[4]/div[1]/c-wiz/div/div/div[1]/div[1]/a"}
+  (Session info: chrome=57.0.2987.98)
+  (Driver info: chromedriver=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed),platform=Windows NT 6.1.7601 SP1 x86) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30.10 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b', time: '2016-03-15 16:57:40'
+System info: host: 'Sachin-PC', ip: '192.168.100.1', os.name: 'Windows 7', os.arch: 'x86', os.version: '6.1', java.version: '1.8.0_91'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.25.426923 (0390b88869384d6eb0d5d09729679f934aab9eed), userDataDir=C:\Users\Sachin\AppData\Local\Temp\scoped_dir3048_3539}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=57.0.2987.98, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 4a31816e56eceead879cf572f02dae98
+*** Element info: {Using=xpath, value=.//*[@id='yDmH0d']/c-wiz/div[4]/div[1]/c-wiz/div/div/div[1]/div[1]/a}

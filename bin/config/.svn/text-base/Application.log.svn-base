@@ -1,0 +1,40 @@
+28/09/2011 18:32:32 devpinoyLogger Server Started
+28/09/2011 18:32:33 devpinoyLogger Selected from ev_call table, first column and first row value:[1]
+28/09/2011 18:32:33 devpinoyLogger Executing the test CheckHeaderLinks
+28/09/2011 18:32:33 devpinoyLogger Executing Navigate
+28/09/2011 18:32:37 devpinoyLogger ***Result of execution -- Pass
+28/09/2011 18:32:38 devpinoyLogger Error came
+28/09/2011 18:32:38 devpinoyLogger Error came
+28/09/2011 18:32:38 devpinoyLogger ***********************************CheckHeaderLinks --- Pass
+28/09/2011 18:32:38 devpinoyLogger Executing the test LoginTest
+28/09/2011 18:32:38 devpinoyLogger Executing wait Keyword
+28/09/2011 18:32:48 devpinoyLogger ***Result of execution -- Pass
+28/09/2011 18:32:49 devpinoyLogger Executing input Keyword
+28/09/2011 18:32:49 devpinoyLogger ***Result of execution -- Pass
+28/09/2011 18:32:49 devpinoyLogger Executing wait Keyword
+28/09/2011 18:32:50 devpinoyLogger ***Result of execution -- Pass
+28/09/2011 18:32:51 devpinoyLogger Executing input Keyword
+28/09/2011 18:32:51 devpinoyLogger ***Result of execution -- Pass
+28/09/2011 18:32:51 devpinoyLogger Executing clickLink
+28/09/2011 18:32:51 devpinoyLogger ***Result of execution -- Pass
+28/09/2011 18:32:52 devpinoyLogger Executing wait Keyword
+28/09/2011 18:33:07 devpinoyLogger ***Result of execution -- Pass
+28/09/2011 18:33:07 devpinoyLogger ***********************************LoginTest --- Pass
+28/09/2011 18:33:07 devpinoyLogger Skipping the test HqLogin
+28/09/2011 18:33:07 devpinoyLogger ***********************************HqLogin --- Skip
+28/09/2011 18:33:07 devpinoyLogger Skipping the test RegisterCall
+28/09/2011 18:33:07 devpinoyLogger ***********************************RegisterCall --- Skip
+28/09/2011 18:33:07 devpinoyLogger Skipping the test EvaluateaCall
+28/09/2011 18:33:07 devpinoyLogger ***********************************EvaluateaCall --- Skip
+28/09/2011 18:33:07 devpinoyLogger Skipping the test RosterUI
+28/09/2011 18:33:07 devpinoyLogger ***********************************RosterUI --- Skip
+28/09/2011 18:33:07 devpinoyLogger Skipping the test signout
+28/09/2011 18:33:07 devpinoyLogger ***********************************signout --- Skip
+28/09/2011 18:33:07 devpinoyLogger Skipping the test LoginTest
+28/09/2011 18:33:07 devpinoyLogger ***********************************LoginTest --- Skip
+28/09/2011 18:33:07 devpinoyLogger Skipping the test ClientProxy
+28/09/2011 18:33:07 devpinoyLogger ***********************************ClientProxy --- Skip
+28/09/2011 18:33:07 devpinoyLogger Skipping the test AgentEvaluationSummaryReport
+28/09/2011 18:33:07 devpinoyLogger ***********************************AgentEvaluationSummaryReport --- Skip
+28/09/2011 18:33:07 devpinoyLogger Skipping the test signout
+28/09/2011 18:33:07 devpinoyLogger ***********************************signout --- Skip

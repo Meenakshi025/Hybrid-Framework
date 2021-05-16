@@ -1,0 +1,5 @@
+testSiteURL=https://monitor.clearmetrix.com
+testBrowser=*firefox
+screenshotPath='C://CMAutomation//tomcat-6.0//webapps//ROOT//screenshots//'
+
+

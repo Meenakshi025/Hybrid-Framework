@@ -1,0 +1,1481 @@
+package testscript;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Random;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
+import reports.ReportUtil;
+
+import datatable.Xls_Reader;
+
+
+import util.DbManager;
+import util.TestConfig;
+import util.TestUtil;
+import util.monitoringMail;
+
+
+
+
+
+public class Keywords extends DriverScript {
+	   public static Random randomGenerator = new Random();
+	   public static Calendar cal = new GregorianCalendar();  //used for adding current date in variable and then used in paths
+	   public static int date = cal.get(Calendar.DATE);  //used for adding current date in variable and then used in paths
+	   public static int month = cal.get(Calendar.MONTH);  //used for adding current date in variable and then used in paths
+	   public static int year = cal.get(Calendar.YEAR);  //used for adding current date in variable and then used in paths
+	   public static int sec =cal.get(Calendar.SECOND);  //used for adding current date in variable and then used in paths
+	   public static int day =cal.get(Calendar.HOUR_OF_DAY);  //used for adding current date in variable and then used in paths
+	   public static int hour=cal.get(Calendar.HOUR);  //used for adding current date in variable and then used in paths
+	   public static int min=cal.get(Calendar.MINUTE);  //used for adding current date in variable and then used in paths
+	   public static String sMin = new Integer(randomGenerator.nextInt(60)).toString(); //Converted Integer value to String and then used in paths
+	   public static String sSec=new Integer(randomGenerator.nextInt(60)).toString(); //Converted Integer value to String and then used in paths
+	   public static String sHour=new Integer(randomGenerator.nextInt(24)).toString();  //Converted Integer value to String and then used in paths
+	   public static String sDate=new Integer(date).toString();  //Converted Integer value to String and then used in paths
+	   /*public static String sMin = new Integer(min).toString(); //Converted Integer value to String and then used in paths
+	   public static String sSec=new Integer(sec).toString(); //Converted Integer value to String and then used in paths
+	   public static String sHour=new Integer(hour).toString();  //Converted Integer value to String and then used in paths
+	   */
+	   
+	   public static String call_id ; //Used in GetText() and DBQuerycheck() to store the call id to be used for Eval UI
+	   public static String sUser=null;
+	   public static String sUser_Name;
+	   public static Xls_Reader datareader=null;
+	   public static Xls_Reader datawriter=null;
+	   public static float round;
+	   public static float round1;
+	   public static String Report_calldate=null;
+	   public static String report_score_calldate=null;
+	   public static float audit_score_calldate;
+	   public static float app_es_call;
+	   public static float round_app_es_call;
+	   public static float app_tp_call;
+	   public static float round_app_tp_call;
+	   public static String ES_Agents_Evaluated=null;
+	   public static float round_app_es_agents;
+	   public static String TP_Agents_Evaluated=null;
+	   public static float round_app_tp_agents;
+	   public static float audit_round1;
+	   public static String ES_evaluation_score_avg=null;
+	   public static String ES_evaluation_score_wa_avg=null;
+	   public static String TP_evaluation_score_avg=null;
+	   public static String TP_evaluation_score_wa_avg=null;
+	   public static float round_ES_evaluation_score_avg;
+	   public static float round_ES_evaluation_score_wa_avg;
+	   public static float round_TP_evaluation_score_avg;
+	   public static float round_TP_evaluation_score_wa_avg;
+	   public static float es_evaluation_score_avg_query_round1;
+	   public static float es_evaluation_score_wa_avg_query_round1;
+	   public static float tp_evaluation_score_avg_query_round1;
+	   public static float tp_evaluation_score_wa_avg_query_round1;
+	   public static String ES_training_call=null;
+	   public static String TP_training_call=null;
+	   public static String ES_evaluations_per_agent=null;
+	   public static String TP_evaluations_per_agent=null;
+
+
+	   public static float round_ES_training_call;
+	   public static float round_TP_training_call;
+	   public static float round_ES_evaluations_per_agent;
+	   public static float round_TP_evaluations_per_agent;
+	   public static float tp_roundagentcount;
+	   public static float es_roundagentcount;
+	   public static float es_qascore_round1;
+	   public static float tp_qascore_round1;
+	   
+	   public static String calibhrs="23";
+	   public static String calibmin="59";
+	   public static String calibsec="59";
+
+	   public static float round_ES_training_call_query;
+	   public static float round_TP_training_call_query;
+	   public static float round_ES_evaluations_per_agent_query;
+	   public static float round_TP_evaluations_per_agent_query;
+	   
+	   public static String test_Input=null;
+	   public static String stest_Input;
+	   public  static String test_vendor=null;
+	   public static String stest_vendor;
+	   public  static String test_location=null;
+	   public static String stest_location;
+	   public  static String test_campaign=null;
+	   public static String stest_campaign;
+	   public  static String test_lob=null;
+	   public static String stest_lob;
+	   public  static String test_call_type=null;
+	   public static String stest_call_type;
+	   public  static String test_Custom=null;
+	   public static String stest_Custom;
+	   public static String script_error=null;
+	   public static int globalwait;
+	   
+	//Navigate to the current URL
+	   
+	public static String navigate() throws Throwable{
+		APPLICATION_LOGS.debug("Executing Navigate");
+		try{
+			selenium.open(CONFIG.getProperty(object));
+			selenium.windowFocus();
+		    selenium.windowMaximize();
+		    
+		}catch(Throwable t){
+			             // report error
+			APPLICATION_LOGS.debug("Error while navigating -"+ object + t.getMessage());
+					    // TestUtil.captureScreenshot();
+						// send mail
+						// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+						// TestUtil.zip(TestConfig.filepath);
+		}
+		return "Pass";
+		
+	}
+	
+	//Clicking on a link or an Object
+	
+	public static String clickLink() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing clickLink");
+		try{
+			selenium.isElementPresent(OR.getProperty(object));
+			selenium.click(OR.getProperty(object));
+		
+		}catch(Throwable t){
+			// report error
+			APPLICATION_LOGS.debug("Error while clicking on an Object -"+ object + t.getMessage());
+			script_error = "Timed out after "+globalwait+" miliseconds";
+			
+		    // TestUtil.captureScreenshot();
+			// send mail
+			// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+			// TestUtil.zip(TestConfig.filepath);
+			return "Fail - Link Not Found";
+		}
+		
+		return "Pass";
+	}
+	
+	
+	//Clicking on a link or an Object which contains Pop up
+	
+    
+    public static String clickLink_popUp() throws AddressException, MessagingException{
+          APPLICATION_LOGS.debug("Executing clickLink");
+          try{
+         if(selenium.isElementPresent("//div[@class='gwt-PopupPanel']")){
+                selenium.click("//a[@class='gwt-Anchor alertLink']");
+                selenium.isElementPresent(OR.getProperty(object));
+                Thread.sleep(5000);
+                selenium.click(OR.getProperty(object));
+          }else{
+                selenium.isElementPresent(OR.getProperty(object));
+                selenium.click(OR.getProperty(object));
+          }
+          }catch(Throwable t){
+                // report error
+                APPLICATION_LOGS.debug("Error while clicking on an Object -"+ object + t.getMessage());
+                script_error = "Timed out after "+globalwait+" miliseconds";
+              // TestUtil.captureScreenshot();
+                // send mail
+                // monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+                // TestUtil.zip(TestConfig.filepath);
+                return "Fail - Link Not Found";
+          }
+          
+          return "Pass";
+    }
+
+	
+	
+	//Input data
+	
+	public static String input() throws Exception{
+		
+		APPLICATION_LOGS.debug("Executing input Keyword");
+		// extract the test data
+		String message = "pass";
+		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+		
+		
+		try{
+			selenium.isElementPresent(OR.getProperty(object));
+			selenium.type(OR.getProperty(object),data);
+		   // driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(data);
+			}catch(Exception t){
+				// report error
+			APPLICATION_LOGS.debug("Error while wrinting into input -"+ object + t.getMessage());
+				//TestUtil.captureScreenshot();
+				// send mail
+			// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+			// TestUtil.zip(TestConfig.filepath);	
+			script_error = "Timed out after "+globalwait+" miliseconds";
+			//System.out.println("New string message is: "+script_error);
+		//DriverScript.endScript();
+			throw t;
+			//return "Fail - "+t.getMessage();
+				
+			}
+			
+		
+			return "Pass";
+			
+			
+	}
+	
+	
+	//Implement Wait
+	
+	public static String waitfor() throws NumberFormatException, InterruptedException, AddressException, MessagingException{
+	     APPLICATION_LOGS.debug("Executing wait Keyword");
+	  // extract the test data
+			String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+			try{
+				 
+				float test = (Float.parseFloat(data));
+				int test1 = (int) test;
+				Thread.sleep(test1);
+				globalwait = test1/1000;
+			}catch(Throwable t){
+				APPLICATION_LOGS.debug("Error while waiting -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				// TestUtil.zip(TestConfig.filepath);
+				return "Fail - "+t.getMessage();
+							}
+	     return "Pass";
+	}
+	
+	
+    //Clicking on a Button
+	
+	public static String clickButton() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing clickButton Keyword");
+		
+		
+		try{
+			
+			selenium.isElementPresent(OR.getProperty(object));
+			selenium.click(OR.getProperty(object));
+		
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while clicking on Button -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				// TestUtil.zip(TestConfig.filepath);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	//Selecting elements from Drop down list
+	
+	public static String select(){
+		APPLICATION_LOGS.debug("Executing select Keyword");
+		// extract the test data
+		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+				
+		try{
+			//driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(data);
+			selenium.isElementPresent(OR.getProperty(object));
+			selenium.select(OR.getProperty(object),"label="+data);
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while Selecting from droplist -"+ object + t.getMessage());
+			
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	
+	
+	public static String Refresh(){
+		APPLICATION_LOGS.debug("Executing select Keyword");
+		// extract the test data
+		
+				
+		try{
+			//driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(data);
+			selenium.refresh();
+			Thread.sleep(10000);
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while refreshing -"+ object + t.getMessage());
+			
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	
+	
+	
+	
+	
+	//Executing type keystrokes
+	
+	public static String typekeys() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing typekeys() Keyword");
+		// extract the test data
+		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+				
+		try{
+			//driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(data);
+		
+			selenium.typeKeys(OR.getProperty(object),data);
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				// TestUtil.zip(TestConfig.filepath);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	//Executing type keystrokes with current hour
+	
+	public static String typekeys_hrs() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing typekeys_hrs() Keyword");
+		// extract the test data
+		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+				
+		try{
+			//driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(data);
+		
+			selenium.typeKeys(OR.getProperty(object),sHour);
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				// TestUtil.zip(TestConfig.filepath);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	//Executing type keystrokes with current minute
+	
+	public static String typekeys_min() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing typekeys_min() Keyword");
+		
+				
+		try{
+				
+			selenium.typeKeys(OR.getProperty(object),sMin);
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				// TestUtil.zip(TestConfig.filepath);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	//Executing type keystrokes with current second
+	
+	public static String typekeys_sec() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing typekeys_sec() Keyword");
+				
+		try{
+			
+			selenium.typeKeys(OR.getProperty(object),sSec);
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				// TestUtil.zip(TestConfig.filepath);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	
+	
+	
+	//Executing type keystrokes with current hour
+	
+		public static String calib_hrs() throws AddressException, MessagingException{
+			APPLICATION_LOGS.debug("Executing typekeys_hrs() Keyword");
+			// extract the test data
+			String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+					
+			try{
+				//driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(data);
+			
+				selenium.typeKeys(OR.getProperty(object),calibhrs);
+				
+			}catch(Throwable t){
+					// report error
+					APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+					// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+					// TestUtil.zip(TestConfig.filepath);
+					return "Fail - "+t.getMessage();
+				}
+				
+				return "Pass";
+		}
+		
+		//Executing type keystrokes with current minute
+		
+		public static String calib_min() throws AddressException, MessagingException{
+			APPLICATION_LOGS.debug("Executing typekeys_min() Keyword");
+			
+					
+			try{
+					
+				selenium.typeKeys(OR.getProperty(object),calibmin);
+				
+			}catch(Throwable t){
+					// report error
+					APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+					// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+					// TestUtil.zip(TestConfig.filepath);
+					return "Fail - "+t.getMessage();
+				}
+				
+				return "Pass";
+		}
+		
+		//Executing type keystrokes with current second
+		
+		public static String calib_sec() throws AddressException, MessagingException{
+			APPLICATION_LOGS.debug("Executing typekeys_sec() Keyword");
+					
+			try{
+				
+				selenium.typeKeys(OR.getProperty(object),calibsec);
+				
+			}catch(Throwable t){
+					// report error
+					APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+					// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+					// TestUtil.zip(TestConfig.filepath);
+					return "Fail - "+t.getMessage();
+				}
+				
+				return "Pass";
+		}
+	
+	
+	/*
+	
+	//Getting calendar date while registering a call in Evaluation UI
+		
+		public static String clickLink_datePopup() throws AddressException, MessagingException{
+            APPLICATION_LOGS.debug("Executing clickLink");
+            try{
+            	 for(int i=1;i<=7;i++){
+                  do{
+                              
+                  selenium.click("//td/table/tbody/tr[2]/td["+i+"]");
+                       
+                  }while(selenium.isElementPresent("//div[@class='gwt-PopupPanel']"));
+                  
+            	 }
+            }catch(Throwable t){
+                  // report error
+                  APPLICATION_LOGS.debug("Error while clicking on an Object -"+ object + t.getMessage());
+                // TestUtil.captureScreenshot();
+                  // send mail
+                  // monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+                  // TestUtil.zip(TestConfig.filepath);
+                  return "Fail - Link Not Found";
+            }
+            
+            return "Pass";
+      }
+
+	*/
+	
+	
+	
+	
+	//Getting text from an object and executing it based on the object
+	
+	public static String GetText() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing GetText Keyword");
+				
+		try{
+			
+			selenium.getText(OR.getProperty(object));
+			APPLICATION_LOGS.debug("Got the text for:  "+object+"----"+ selenium.getText(OR.getProperty(object)));
+			
+			if(object.equals("callid")){
+				call_id=selenium.getText(OR.getProperty(object));
+				
+				//setting the test data file to null
+				DriverScript.testData=null; 
+				datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");						
+				
+				//Adding generated call id in Evaluation and Audit
+				
+				datareader.setCellData("EvaluateaCall", "generated_call_id", 2, call_id);
+				datareader.setCellData("Audit_call", "generated_call_id", 2, call_id);
+				datareader.setCellData("Calibrations", "generated_call_id", 2, call_id);
+				//Loading the test data file again
+				DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");				 
+				
+								 
+			   }else if(object.equals("evalscore")){
+				String app_score=(selenium.getText(OR.getProperty(object))).replaceAll("\\(.+\\)", "");
+				System.out.println("App score is:"+app_score);
+				float score= Float.parseFloat(app_score);
+				round = TestUtil.Round(score,2);
+				System.out.println("First round: "+round);
+				
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Evaluation", "QAScore_Application", 2, round);
+			 
+				
+		     	}else if(object.equals("call_date")){
+				Report_calldate=selenium.getText(OR.getProperty(object));
+				System.out.println("Report call date is: "+Report_calldate);
+				TestUtil.Report_Date_Conversion();		
+				
+				//Agent Evaluation Summary report
+				}else if(object.equals("report_score_calldate")){
+				report_score_calldate=selenium.getText(OR.getProperty(object));
+				app_es_call = Float.parseFloat(report_score_calldate);
+				round_app_es_call = (float)TestUtil.Round(app_es_call,2);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setCellData("Reports", "Eval_Count_Application", 2, report_score_calldate);
+					// Agents Evaluated Count report
+				}else if(object.equals("ES_Agents_Evaluated")){
+					ES_Agents_Evaluated=selenium.getText(OR.getProperty(object));
+					float app_es_agents = Float.parseFloat(ES_Agents_Evaluated);
+					round_app_es_agents = (float)TestUtil.Round(app_es_agents,2);
+					System.out.println("ES_Agents_Evaluated "+round_app_es_agents);
+					datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+					datawriter.setCellData("Reports", "Agents_Evaluated_Reports", 2, ES_Agents_Evaluated);
+					
+				
+				//Team Performance report
+				}else if(object.equals("ed_report_score_calldate")){
+				report_score_calldate=selenium.getText(OR.getProperty(object));
+				app_tp_call = Float.parseFloat(report_score_calldate);
+				round_app_tp_call = (float)TestUtil.Round(app_tp_call,2);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setCellData("Reports", "Eval_Count_Application", 3, report_score_calldate);
+				}
+					// Agents Evaluated Count report
+				else if(object.equals("TP_Agents_Evaluated")){
+					TP_Agents_Evaluated=selenium.getText(OR.getProperty(object));
+					float app_es_agents = Float.parseFloat(TP_Agents_Evaluated);
+					round_app_tp_agents = (float)TestUtil.Round(app_es_agents,2);
+					datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+					datawriter.setCellData("Reports", "Agents_Evaluated_Reports", 3, TP_Agents_Evaluated);
+					
+					
+					
+					
+				}
+			// Agents Evaluation_score_reports ES report
+		else if(object.equals("ES_evaluation_score_avg")){
+			ES_evaluation_score_avg=selenium.getText(OR.getProperty(object));
+			float app_es_agents = Float.parseFloat(ES_evaluation_score_avg);
+			round_ES_evaluation_score_avg = (float)TestUtil.Round(app_es_agents,2);
+			datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+			datawriter.setFloatCellData("Reports", "Evaluation_score_reports", 2, round_ES_evaluation_score_avg);
+		}
+			// Agents Evaluation_score_reports w/o AUTOFAIL ES report
+		else if(object.equals("ES_evaluation_score_wa_avg")){
+			ES_evaluation_score_wa_avg=selenium.getText(OR.getProperty(object));
+			float app_es_agents = Float.parseFloat(ES_evaluation_score_wa_avg);
+			round_ES_evaluation_score_wa_avg = (float)TestUtil.Round(app_es_agents,2);
+			datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+			datawriter.setFloatCellData("Reports", "Score_without_autofail_reports", 2, round_ES_evaluation_score_wa_avg);
+			
+		}
+			// Agents Evaluation_score_reports TP report
+		else if(object.equals("TP_evaluation_score_avg")){
+			TP_evaluation_score_avg=selenium.getText(OR.getProperty(object));
+			float app_es_agents = Float.parseFloat(TP_evaluation_score_avg);
+			round_TP_evaluation_score_avg = (float)TestUtil.Round(app_es_agents,2);
+			datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+			datawriter.setFloatCellData("Reports", "Evaluation_score_reports", 3, round_TP_evaluation_score_avg);
+		}
+			// Agents Evaluation_score_reports w/o AUTOFAIL TP report
+		else if(object.equals("TP_evaluation_score_wa_avg")){
+			TP_evaluation_score_wa_avg=selenium.getText(OR.getProperty(object));
+			float app_es_agents = Float.parseFloat(TP_evaluation_score_wa_avg);
+			round_TP_evaluation_score_wa_avg = (float)TestUtil.Round(app_es_agents,2);
+			datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+			datawriter.setFloatCellData("Reports", "Score_without_autofail_reports", 3, round_TP_evaluation_score_wa_avg);
+			
+			
+			
+		}
+			// ES report training call
+		else if(object.equals("ES_training_call")){
+			ES_training_call=selenium.getText(OR.getProperty(object));
+			float app_es_agents = Float.parseFloat(ES_training_call);
+			round_ES_training_call = (float)TestUtil.Round(app_es_agents,2);
+			datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+			datawriter.setFloatCellData("Reports", "Training_call_reports", 2, round_ES_training_call);
+			
+		}
+			// TP report training call
+		else if(object.equals("TP_training_call")){
+			TP_training_call=selenium.getText(OR.getProperty(object));
+			float app_es_agents = Float.parseFloat(TP_training_call);
+			round_TP_training_call = (float)TestUtil.Round(app_es_agents,2);
+			datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+			datawriter.setFloatCellData("Reports", "Training_call_reports", 3, round_TP_training_call);
+		
+		}
+			// ES report evaluations per agent
+		else if(object.equals("ES_evaluations_per_agent")){
+			ES_evaluations_per_agent=selenium.getText(OR.getProperty(object));
+			float app_es_agents = Float.parseFloat(ES_evaluations_per_agent);
+			round_ES_evaluations_per_agent = (float)TestUtil.Round(app_es_agents,2);
+			datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+			datawriter.setFloatCellData("Reports", "Eval_per_agent_reports", 2, round_ES_evaluations_per_agent);
+			
+		}
+			// TP report evaluations per agent
+		else if(object.equals("TP_evaluations_per_agent")){
+			TP_evaluations_per_agent=selenium.getText(OR.getProperty(object));
+			float app_es_agents = Float.parseFloat(TP_evaluations_per_agent);
+			round_TP_evaluations_per_agent = (float)TestUtil.Round(app_es_agents,2);
+			datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+			datawriter.setFloatCellData("Reports", "Eval_per_agent_reports", 3, round_TP_evaluations_per_agent);
+		
+			
+			
+			
+			
+			
+			
+			
+			
+					
+					
+				//Audit UI
+					
+				}else if(object.equals("calculate_audit_score")){
+                String audit_app_score=(selenium.getText(OR.getProperty(object))).replaceAll("\\(.+\\)", "");
+                System.out.println("App audit score is:"+audit_app_score);
+                float score= Float.parseFloat(audit_app_score);
+                audit_score_calldate= TestUtil.Round(score,2);
+                System.out.println("First audit round: "+audit_score_calldate);
+                datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");                                    
+                datawriter.setFloatCellData("Evaluation", "QAScore_Application", 3, audit_score_calldate);
+                
+          }
+
+			
+			
+		}catch(Throwable t){
+			
+				// report error
+				APPLICATION_LOGS.debug("Error while fetching text -"+ object + t.getMessage());
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	
+	
+	
+	//Fetching and validating the data from DB after putting it in the Excel file
+	
+	public static String DBQueryCheck() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing GetText Keyword");
+				
+		try{
+			
+			//Evaluation QA Score comparsion
+			if(object.equals("querycheck")){		
+			
+			    DriverScript.DBresults=null;
+			    List<String> values =DbManager.getQuery("select net_score from ev_evaluation where call_id in (select call_id from ev_call where call_external_id ='"+call_id+"')");
+				//List<String> values =DbManager.getQuery("select net_score from ev_evaluation where call_id in (select call_id from ev_call where call_external_id ='malathitest.agent00227092011030303')");
+				String abcd= ((values.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				round1 = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+round1);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Evaluation", "QAScore_Database", 2, round1);
+				//assertEquals(round1,round,.1);
+				if(round1==round){
+					datawriter.setCellData("Evaluation", "Test_Result", 2, "Pass");
+				}else{
+					datawriter.setCellData("Evaluation", "Test_Result", 2, "Fail");
+				}
+				//datawriter.setCellData("Evaluation", "Test_Result", 2, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			//Agent Evaluation Summary
+			else if(object.equals("report_calldate_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select count(call_id) from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				es_qascore_round1 = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setCellData("Reports", "Eval_Count_Database", 2, abcd);
+				//assertEquals(abcd,report_score_calldate);
+				if(es_qascore_round1==round_app_es_call){
+					datawriter.setCellData("Reports", "Test_Result", 2, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Test_Result", 2, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 2, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Agent Evaluation summary set agent count value after comparing with database
+			else if(object.equals("es_agentcount_calldate_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select count(distinct(agent_id)) from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				es_roundagentcount = (float)TestUtil.Round(xyz,2);
+				System.out.println("ES_Agents_Evaluated_database "+es_roundagentcount);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setCellData("Reports", "Agents_Evaluated_Database", 2, abcd);
+				//assertEquals(abcd,report_score_calldate);
+				if(es_roundagentcount==round_app_es_agents){
+					datawriter.setCellData("Reports", "Agents_Evaluated_Results", 2, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Agents_Evaluated_Results", 2, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 2, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Team performance set agent count value after comparing with database
+			else if(object.equals("tp_agentcount_calldate_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select count(distinct(agent_id)) from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				tp_roundagentcount = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setCellData("Reports", "Agents_Evaluated_Database", 3, abcd);
+				//assertEquals(abcd,report_score_calldate);
+				if(tp_roundagentcount==round_app_tp_agents){
+					datawriter.setCellData("Reports", "Agents_Evaluated_Results", 3, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Agents_Evaluated_Results", 3, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 2, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			
+			
+			//Team Performance database
+			else if(object.equals("ed_report_calldate_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select count(call_id) from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				tp_qascore_round1 = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setCellData("Reports", "Eval_Count_Database", 3, abcd);
+				//assertEquals(abcd,report_score_calldate);
+				if(tp_qascore_round1==round_app_tp_call){
+					datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Test_Result", 3, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Evaluation summary report for evaluation qa score avg database
+			else if(object.equals("es_evaluation_score_avg_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select (sum(evaluation_net_points)/sum(evaluation_possible_points))*100 from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				es_evaluation_score_avg_query_round1 = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Reports", "Evaluation_score_database", 2, es_evaluation_score_avg_query_round1);
+				//assertEquals(abcd,report_score_calldate);
+				if(es_evaluation_score_avg_query_round1==round_ES_evaluation_score_avg){
+					datawriter.setCellData("Reports", "Evaluation_score_results", 2, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Evaluation_score_results", 2, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Evaluation summary report for evaluation qa score with autofail avg database
+			else if(object.equals("es_evaluation_score_wa_avg_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select (sum(evaluation_points)/sum(evaluation_possible_points))*100 from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				es_evaluation_score_wa_avg_query_round1 = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Reports", "Score_without_autofail_database", 2, es_evaluation_score_wa_avg_query_round1);
+				//assertEquals(abcd,report_score_calldate);
+				if(es_evaluation_score_wa_avg_query_round1==round_ES_evaluation_score_wa_avg){
+					
+					datawriter.setCellData("Reports", "Score_without_autofail_results", 2, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Score_without_autofail_results", 2, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Team Performance report for evaluation qa score avg database
+			else if(object.equals("tp_evaluation_score_avg_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select (sum(evaluation_net_points)/sum(evaluation_possible_points))*100 from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				tp_evaluation_score_avg_query_round1 = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Reports", "Evaluation_score_database", 3, tp_evaluation_score_avg_query_round1);
+				//assertEquals(abcd,report_score_calldate);
+				if(tp_evaluation_score_avg_query_round1==round_TP_evaluation_score_avg){
+					datawriter.setCellData("Reports", "Evaluation_score_results", 3, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Evaluation_score_results", 3, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Team Performance report for evaluation qa score with autofail avg database
+			else if(object.equals("tp_evaluation_score_wa_avg_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select (sum(evaluation_points)/sum(evaluation_possible_points))*100 from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				tp_evaluation_score_wa_avg_query_round1 = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Reports", "Score_without_autofail_database", 3, tp_evaluation_score_wa_avg_query_round1);
+				//assertEquals(abcd,report_score_calldate);
+				if(tp_evaluation_score_wa_avg_query_round1==round_TP_evaluation_score_wa_avg){
+					datawriter.setCellData("Reports", "Score_without_autofail_results", 3, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Score_without_autofail_results", 3, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			
+						
+			//Evaluation summary report for training call database
+			else if(object.equals("ES_training_call_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select count(call_id) from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 2");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				round_ES_training_call_query = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Reports", "Training_call_database", 2, round_ES_training_call_query);
+				//assertEquals(abcd,report_score_calldate);
+				if(round_ES_training_call_query==round_ES_training_call){
+					datawriter.setCellData("Reports", "Training_call_results", 2, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Training_call_results", 2, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Evaluation summary report for evaluation per agent database
+			else if(object.equals("ES_evaluations_per_agent_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				//List<String> values1 =DbManager.getMysqlQuery("select (sum(evaluation_points)/sum(evaluation_possible_points))*100 from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				System.out.println("es_roundagentcount : "+es_roundagentcount);
+				System.out.println("es_qascore_round1 : "+es_qascore_round1);
+				float division = es_qascore_round1/es_roundagentcount;
+				System.out.println("division: "+division);
+				//System.out.println("Report value from Database: "+values1);
+				//String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				//float xyz=Float.parseFloat(abcd);
+				round_ES_evaluations_per_agent_query = (float)TestUtil.Round(division,2);
+				//System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Reports", "Eval_per_agent_database", 2, division);
+				//assertEquals(abcd,report_score_calldate);
+				if(round_ES_evaluations_per_agent_query==round_ES_evaluations_per_agent){
+					
+					datawriter.setCellData("Reports", "Eval_per_agent_results", 2, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Eval_per_agent_results", 2, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Team Performance report for training call database
+			else if(object.equals("TP_training_call_query")){
+				TestUtil.Report_Date_Conversion();
+				DriverScript.DBresults=null;
+				List<String> values1 =DbManager.getMysqlQuery("select count(call_id) from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+" 23:59:59"+"'"+" and status_id = 1 and evaluation_type_id = 2");
+				System.out.println("Report value from Database: "+values1);
+				String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				round_TP_training_call_query = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Reports", "Training_call_database", 3, round_TP_training_call_query);
+				//assertEquals(abcd,report_score_calldate);
+				if(round_TP_training_call_query==round_TP_training_call){
+					datawriter.setCellData("Reports", "Training_call_results", 3, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Training_call_results", 3, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			//Team Performance report for evaluation per agent database
+			else if(object.equals("TP_evaluations_per_agent_query")){
+				TestUtil.Report_Date_Conversion();
+				//DriverScript.DBresults=null;
+				//List<String> values1 =DbManager.getMysqlQuery("select (sum(evaluation_points)/sum(evaluation_possible_points))*100 from fact_evaluation where call_date between "+"'"+TestUtil.from_date+"'"+" and "+"'"+TestUtil.to_date+"'"+" and status_id = 1 and evaluation_type_id = 1");
+				//System.out.println("Report value from Database: "+values1);
+				//String abcd= ((values1.toString()).replace("[", "")).replace("]", "");
+				float division = tp_qascore_round1/tp_roundagentcount;
+				//float xyz=Float.parseFloat(abcd);
+				round_TP_evaluations_per_agent_query = (float)TestUtil.Round(division,2);
+				//System.out.println("Second round: "+abcd);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Reports", "Eval_per_agent_database", 3, round_TP_evaluations_per_agent_query);
+				//assertEquals(abcd,report_score_calldate);
+				if(round_TP_evaluations_per_agent_query==round_TP_evaluations_per_agent){
+					datawriter.setCellData("Reports", "Eval_per_agent_results", 3, "Pass");
+				}else{
+					datawriter.setCellData("Reports", "Eval_per_agent_results", 3, "Fail");
+				}
+				
+				
+				//datawriter.setCellData("Reports", "Test_Result", 3, "Pass");
+				DriverScript.DBresults  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\db_data.xlsx");
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			// Audit score comparison with Database and then setting the value in excel
+			else if(object.equals("auditquerycheck")){		
+				
+			    DriverScript.DBresults=null;
+			    List<String> values =DbManager.getQuery("select net_score from ev_evaluation where call_id in (select call_id from ev_call where call_external_id ='"+call_id+"')and audit_status = 'Completed'");
+				System.out.println("Audit value from database :"+values);
+			    //List<String> values =DbManager.getQuery("select net_score from ev_evaluation where call_id in (select call_id from ev_call where call_external_id ='malathitest.agent00227092011030303')");
+				String abcd= ((values.toString()).replace("[", "")).replace("]", "");
+				float xyz=Float.parseFloat(abcd);
+				audit_round1 = (float)TestUtil.Round(xyz,2);
+				System.out.println("Second audit round from db: "+audit_round1);
+				datawriter = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\db_data.xlsx");						
+				datawriter.setFloatCellData("Evaluation", "QAScore_Database", 3, audit_round1);
+				//assertEquals(round1,round,.1);
+				if(audit_round1==audit_score_calldate){
+					datawriter.setCellData("Evaluation", "Test_Result", 3, "Pass");
+				}
+				else{
+					datawriter.setCellData("Evaluation", "Test_Result", 3, "Fail");
+				}
+			}
+		}catch(Throwable t){
+		
+				
+				// report error
+				APPLICATION_LOGS.debug("Error while fetching text -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	//Data comparison
+	
+	public static String assert_check() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing assert_check() Keyword");
+		
+		try{
+			
+			selenium.isTextPresent(OR.getProperty(object));
+			
+			assertEquals("expected", "actual",.1);
+			if(object.equals("callid")){
+			selenium.isTextPresent((call_id));
+			System.out.println("Verifed Text as  :"+call_id);	
+			}
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while comparing data -"+ object + t.getMessage());
+			
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	
+	
+	
+	
+	//Verifying text presence 
+	
+	public static String verifytext() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing verifytext() Keyword");
+		
+		try{
+			
+			selenium.isTextPresent(OR.getProperty(object));
+			
+			if(object.equals("callid")){
+			selenium.isTextPresent((call_id));
+			System.out.println("Verifed Text as  :"+call_id);	
+			}
+			
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while Verifying text presence -"+ object + t.getMessage());
+			
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+
+	// clicking on an Object that contains certain text
+	
+	public static String containsText_click(){
+		APPLICATION_LOGS.debug("Executing Dynamic element present Keyword");
+		
+		try{
+					
+			String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+			selenium.click("//div[contains(text(),'"+data+"')]");
+			
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while searching and clicking -"+ object + t.getMessage());
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+
+	// Forcefully clicking on an Object
+	
+	public static String clickat() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing Dynamic element present Keyword");
+		
+		try{
+					
+			String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+		//	selenium.click("//div[contains(text(),'"+data+"')]");
+			selenium.clickAt(OR.getProperty(object), data);
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while searching and clicking -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				// TestUtil.zip(TestConfig.filepath);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+
+	
+	
+	
+	
+	
+	public static String doubleclickat() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing Dynamic element present Keyword");
+		
+		try{
+					
+			String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+		//	selenium.click("//div[contains(text(),'"+data+"')]");
+			//selenium.clickAt(OR.getProperty(object), data);
+			selenium.doubleClickAt(OR.getProperty(object), data);
+		
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while searching and clicking -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				// TestUtil.zip(TestConfig.filepath);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	
+	// Clicking on a object by fireevent keyword
+	
+	public static String fireevent() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing Dynamic element present Keyword");
+		
+		try{
+					
+			String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+		
+			selenium.fireEvent(OR.getProperty(object),"click");
+			
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while clicking -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	// Clicking on a object by checkBox keyword
+	
+	public static String checkBox() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing Dynamic element present Keyword");
+		
+		try{
+					
+			String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+		
+			selenium.check(OR.getProperty(object));
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while checking -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	
+	
+	
+	// Clicking on a object by fireevent keyword by getting the data from the excel file
+	
+	public static String checkelementpresence() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing Dynamic element present Keyword");
+		
+		try{
+					
+			String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+		
+			selenium.fireEvent("//table/tbody/tr/td[2]/a[contains(text(),'"+data+"')]", "click");
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while clicking -"+ object + t.getMessage());
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+	// Adding a unique test user in Roster UI
+	
+	public static String Test_User() throws AddressException, MessagingException{
+		
+		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+		APPLICATION_LOGS.debug("Executing select Keyword");
+		
+		try{
+				sUser=sHour+sMin+sSec;
+			    selenium.type(OR.getProperty(object),data+"_"+sUser);
+		        sUser_Name=data+"_"+sUser;
+		        DriverScript.testData=null; 
+		        datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");
+			    datareader.setCellData("RosterUI", "test_user_id", 2,sUser_Name);	
+			    DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");
+			    
+            
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+
+	// Adding a unique test BVT Name in Configuration UI
+     public static String Test_BVT() throws AddressException, MessagingException{
+		
+		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+		APPLICATION_LOGS.debug("Executing select Keyword");
+		
+		try{
+				test_Input=sDate+sHour+sMin;
+			    selenium.type(OR.getProperty(object),data+"_"+test_Input);
+			    stest_Input=data+"_"+test_Input;
+		        DriverScript.testData=null; 
+		        datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");
+			    datareader.setCellData("ConfigurationUI", "test_bvt_name", 2,stest_Input);	
+			    DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+     public static String Test_Vendor_Name() throws AddressException, MessagingException{
+    		
+    		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+    		APPLICATION_LOGS.debug("Executing select Keyword");
+    		
+    		try{
+    				test_vendor=sDate+sHour+sMin;
+    			    selenium.type(OR.getProperty(object),data+"_"+test_vendor);
+    			    stest_vendor=data+"_"+test_vendor;
+    		        DriverScript.testData=null; 
+    		        datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");
+    			    datareader.setCellData("ConfigurationUI", "test_Vendor_value", 2,stest_vendor);	
+    			    DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");
+    		}catch(Throwable t){
+    				// report error
+    				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+    				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+    				return "Fail - "+t.getMessage();
+    			}
+    			
+    			return "Pass";
+    	}
+
+     public static String Test_Location_Name() throws AddressException, MessagingException{
+    		
+    		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+    		APPLICATION_LOGS.debug("Executing select Keyword");
+    		
+    		try{
+    				test_location=sDate+sHour+sMin;
+    			    selenium.type(OR.getProperty(object),data+"_"+test_location);
+    			    stest_location=data+"_"+test_location;
+    		        DriverScript.testData=null; 
+    		        datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");
+    			    datareader.setCellData("ConfigurationUI", "test_location_value", 2,stest_location);	
+    			    DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");
+    		}catch(Throwable t){
+    				// report error
+    				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+    				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+    				return "Fail - "+t.getMessage();
+    			}
+    			
+    			return "Pass";
+    	}
+     public static String Test_Campaign_Name() throws AddressException, MessagingException{
+    		
+    		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+    		APPLICATION_LOGS.debug("Executing select Keyword");
+    		
+    		try{
+    				test_campaign=sDate+sHour+sMin;
+    			    selenium.type(OR.getProperty(object),data+"_"+test_campaign);
+    			    stest_campaign=data+"_"+test_campaign;
+    		        DriverScript.testData=null; 
+    		        datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");
+    			    datareader.setCellData("ConfigurationUI", "test_campaign_value", 2,stest_campaign);	
+    			    DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");
+    		}catch(Throwable t){
+    				// report error
+    				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+    				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+    				return "Fail - "+t.getMessage();
+    			}
+    			
+    			return "Pass";
+    	}
+    	public static String Test_Lob_Name() throws AddressException, MessagingException{
+    		
+    		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+    		APPLICATION_LOGS.debug("Executing select Keyword");
+    		
+    		try{
+    				test_lob=sDate+sHour+sMin;
+    			    selenium.type(OR.getProperty(object),data+"_"+test_lob);
+    			    stest_lob=data+"_"+test_lob;
+    		        DriverScript.testData=null; 
+    		        datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");
+    			    datareader.setCellData("ConfigurationUI", "test_lob_value", 2,stest_lob);	
+    			    DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");
+    		}catch(Throwable t){
+    				// report error
+    				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+    				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+    				return "Fail - "+t.getMessage();
+    			}
+    			
+    			return "Pass";
+    	}
+
+    	public static String Test_CallType_Name() throws AddressException, MessagingException{
+    		
+    		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+    		APPLICATION_LOGS.debug("Executing select Keyword");
+    		
+    		try{
+    				test_call_type=sDate+sHour+sMin;
+    			    selenium.type(OR.getProperty(object),data+"_"+test_call_type);
+    			    stest_call_type=data+"_"+test_call_type;
+    		        DriverScript.testData=null; 
+    		        datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");
+    			    datareader.setCellData("ConfigurationUI", "test_CallType_value", 2,stest_call_type);	
+    			    DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");
+    		}catch(Throwable t){
+    				// report error
+    				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+    				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+    				return "Fail - "+t.getMessage();
+    			}
+    			
+    			return "Pass";
+    	}
+  
+     public static String Test_Custom_Name() throws AddressException, MessagingException{
+    		
+    		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+    		APPLICATION_LOGS.debug("Executing select Keyword");
+    		
+    		try{
+    				test_Custom=sDate+sHour+sMin;
+    			    selenium.type(OR.getProperty(object),data+"_"+test_Custom);
+    			    stest_Custom=data+"_"+test_Custom;
+    		        DriverScript.testData=null; 
+    		        datareader = new Xls_Reader("C:\\CM3.0\\app\\test\\Framework\\AutomationBvt_Hybrid\\src\\config\\TestData.xlsx");
+    			    datareader.setCellData("ConfigurationUI", "CustomFields_name", 2,stest_Custom);	
+    			    DriverScript.testData  =  new Xls_Reader(System.getProperty("user.dir")+"\\src\\config\\TestData.xlsx");
+    		}catch(Throwable t){
+    				// report error
+    				APPLICATION_LOGS.debug("Error while typing data -"+ object + t.getMessage());
+    				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+    				return "Fail - "+t.getMessage();
+    			}
+    			
+    			return "Pass";
+    	}
+  
+	
+	public static String addselection() throws AddressException, MessagingException{
+		APPLICATION_LOGS.debug("Executing select Keyword");
+		// extract the test data
+		String data =testData.getCellData(currentTest, data_column_name , testRepeat);
+				
+		try{
+			//driver.findElement(By.xpath(OR.getProperty(object))).sendKeys(data);
+			selenium.isElementPresent(OR.getProperty(object));
+			selenium.addSelection(OR.getProperty(object),"label="+data);
+			
+		}catch(Throwable t){
+				// report error
+				APPLICATION_LOGS.debug("Error while Selecting from droplist -"+ object + t.getMessage());
+				// monitoringMail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, TestConfig.message, TestConfig.attachmentPath, TestConfig.attachmentName);
+				return "Fail - "+t.getMessage();
+			}
+			
+			return "Pass";
+	}
+	
+
+
+	
+	
+}

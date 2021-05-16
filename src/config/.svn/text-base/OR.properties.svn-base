@@ -1,0 +1,438 @@
+#links
+
+#From Login Test
+username=//input[@id='username']
+password=//input[@id='password']
+signin_button=//table/tbody/tr[4]/td[2]/a
+
+#From HqLogin
+signin_MySelf=//form[@id='command']/input[2]
+
+
+#From RegisterCall
+calls_menu=//td[contains(text(),'Calls')]
+Register_call=//td[contains(text(),'Register Call')]
+register_call_affiliation=css=select.gwt-ListBox
+register_call_vendor=//tr[4]/td[2]/table/tbody/tr[2]/td/select
+register_call_location=//tr[5]/td[2]/table/tbody/tr[2]/td/select
+register_call_campaign=//tr[6]/td[2]/table/tbody/tr[2]/td/select
+register_call_calltype=//tr[7]/td[2]/table/tbody/tr[2]/td/select
+type_agent_name=//tr[8]/td[2]/input[@class='gwt-SuggestBox']
+agent_name_click=//table/tbody/tr[2]/td[2]/div/div/table/tbody/tr/td
+agent_id=//tr[9]/td[2]/div[@class='gwt-Label']
+supervisor=//tr[10]/td[2]/div[@class='gwt-Label']
+cdhour=//tr[11]/td[2]/table/tbody/tr/td[1]/table/tbody/tr/td[1]/input
+cdmin=//tr[11]/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+cdsec=//tr[11]/td[2]/table/tbody/tr/td[3]/table/tbody/tr/td[1]/input
+calendarclick=css=input.gwt-DateBox.gwt-DateBox-readonly
+dateselected=//table/tbody/tr[2]/td/table/tbody/tr[2]/td[1]
+timehour=//tr[12]/td[2]/table/tbody/tr/td[3]/table/tbody/tr/td[1]/table/tbody/tr/td[1]/input
+timemin=//tr[12]/td[2]/table/tbody/tr/td[3]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+timesec=//tr[12]/td[2]/table/tbody/tr/td[3]/table/tbody/tr/td[3]/table/tbody/tr/td[1]/input
+callid=//tr[13]/td[2]/div[@class='call-id']
+myself=//button[contains(text(),'Myself')]
+callregister_submit=//button[contains(text(),'Register')]
+afterregisterationok=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[2]/td/button
+
+
+#My Evaluation
+evaluation_tab=//td[contains(text(),'Evaluations')]
+my_evaluation=//td[contains(text(),'My Evaluation')]
+clear_search=//table/tbody/tr[17]/td/table/tbody/tr/td[1]/button
+evaluate_button=//button[contains(text(),'Evaluate')]
+category_1_evaluation=//div[contains(text(),'Category1')]
+category_2A_evaluation=//div[contains(text(),'Category2A')]
+category_2B_evaluation=//div[contains(text(),'Category2B')]
+evaluation_List=//td[contains(text(),'Evaluation List')]
+search_myevaluation=//table/tbody/tr/td[2]/table/tbody/tr/td[2]/button
+search_myevaluation_callid_type=//table/tbody/tr[11]/td[2]/input
+search_myevaluation_click=//div/table/tbody/tr[17]/td/table/tbody/tr/td[2]/button
+search_evaluation=//div/div[5]/div/div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[5]/button
+search_evaluation_pop_up=//div/table/tbody/tr[17]/td/table/tbody/tr/td[2]/button
+cat1_ques1=//input[@value='613']
+cat1_ques2=//input[@value='617']
+commentbox_cat1=//table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+cat1_ques3=//input[@value='619']    
+cat2_ques1=//input[@value='622'] 
+cat2_ques2=//input[@value='626'] 
+commentbox_cat2=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+cat2_ques3=//input[@value='628'] 
+cat2_ques4=//input[@value='631'] 
+cat2_ques5=//input[@value='634'] 
+cat3_ques1=//input[@value='637'] 
+commentbox_cat3=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+cat3_ques2=//input[@value='641'] 
+cat3_ques3=//input[@value='643'] 
+cat3_ques4=//input[@value='646'] 
+cat3_ques5=//input[@value='649']
+calculate_button=//button[contains(text(),'Calculate')] 
+calculate_score_text=//div/div[2]/div/div[2]/div/div[3]/div/table
+evalscore=//div[2]/div/div[3]/div/table/tbody/tr/td[4]/div
+evaluation_submit_button=//div/div[4]/table/tbody/tr/td[6]/button
+
+
+# audits 
+
+audit_tab=//td[contains(text(),'Audits')]
+available_audits=//td[contains(text(),'Available Audits')]
+audit_search=//div[3]/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[6]/button
+clear_search_audit=//td[2]/div/table/tbody/tr[18]/td/table/tbody/tr/td[1]/button
+enter_callId=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[12]/td[2]/input
+audit_search_popup=//td[2]/div/table/tbody/tr[18]/td/table/tbody/tr/td[2]/button
+select_call=//div[3]/div/div[2]/div/div[2]/div/div[4]/div/div/table/tbody[1]/tr[1]/td[1]/div/input
+assign_to_me=//div[3]/div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/button
+MyAudit_select=//td[contains(text(),'My Audits')]
+#select_call_myaudit=//div/div[3]/div/div[2]/div/div[2]/div/div[4]/div/div/table/tbody[1]/tr[1]/td[1]/div/input
+before_select_call_myaudit=//div/div[4]/div/div[2]/div/div[3]/div/div[2]/div/div[2]/div/div[4]/div/div/table/tbody[1]/tr[1]/td[3]
+select_call_myaudit=css=input[type="checkbox"]
+doubleclick_ataudit=//body/div[3]/div[2]/div/div[4]/div/div[2]/div/div[3]/div/div[2]/div/div[2]/div/div[4]/div/div/table/tbody[1]/tr[1]/td[8]/div
+myaudit_error=//body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[2]/td/button
+myaudit_search=//div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[6]/button
+clear_popup=//td[2]/div/table/tbody/tr[18]/td/table/tbody/tr/td[1]/button
+callId_popup=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[12]/td[2]/input
+search_popup=//tr[18]/td/table/tbody/tr/td[2]/button
+Audit_menu_Myaudit=//table/tbody/tr[2]/td[2]/div/div/table/tbody/tr[2]/td
+Audit_button_Myaudit=//div/div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/button
+category_1_audit=//div[contains(text(),'Category1')]
+audit_cat1_ques1=//input[@value='614']
+# first category
+
+audit_commentbox_cat1=//div/div[2]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat1_2=//div/div[2]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat1_3=//div/div[2]/div/div/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+
+category_2A_audit=//div[contains(text(),'Category2A')]
+audit_cat2_ques6=//input[@value='629'] 
+
+#second category
+
+
+audit_commentbox_cat2=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat2_2=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat2_3=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat2_4=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[4]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat2_5=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+
+category_2B_audit=//div[contains(text(),'Category2B')]
+cat3_ques11=//input[@value='644'] 
+
+#third category
+
+audit_commentbox_cat3=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat3_2=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat3_3=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat3_4=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[4]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+audit_commentbox_cat3_5=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+
+audit_calculate_button=//button[contains(text(),'Calculate')] 
+calculate_audit_score=//div/div[3]/div/table/tbody/tr/td[4]/div
+comment_audit=//div[contains(text(),'Comment')]
+auditor_comments=//td[contains(text(),'Auditor Comments')]
+comment_textArea=//table/tbody/tr[1]/td/table/tbody/tr[2]/td/div/textarea
+audit_submit_button=//button[contains(text(),'Complete Audit')]
+myaudit_search_vendor=//table/tbody/tr[14]/td[2]/select
+myaudit_search_location=//table/tbody/tr[15]/td[2]/select
+myaudit_search_campaign=//table/tbody/tr[16]/td[2]/select
+
+
+#Calibrations 
+Calibration_menu =//td[contains(text(),'Calibrations')] 
+Schedule_calibrations=//td[contains(text(),'Schedule Calibrations')]
+Schedule_calibrations_search=//button[contains(text(),'Search')]
+Schedule_calibrations_Clear=//button[contains(text(),'Clear')]
+Schedule_calibrations_Affiliation_popup=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[6]/td[2]/select
+Schedule_calibrations_Call-id=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[8]/td[2]/input
+Schedule_calibrations_popup_search=//table/tbody/tr[13]/td/table/tbody/tr/td[2]/button
+Schedule_calibrations_call_selection=//div[2]/div/div[2]/div/div[4]/div/div/table/tbody[1]/tr/td[2]
+Schedule_calibrations_schedule_selection=//button[contains(text(),'Schedule Session')]
+Schedule_calibrations_Invite=//div[4]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/button
+Schedule_calibrations_group=css=select.gwt-ListBox.cm-User-Group
+Schedule_calibrations_select_Member=//div[4]/div/div[3]/div/div/table/tbody[1]/tr[1]/td[1]/div/input
+Schedule_calibrations_Member_Invite=//div/div/div[2]/table/tbody/tr/td[1]/button
+Schedule_calibrations_calendar_click=css=input.gwt-DateBox.gwt-DateBox-readonly
+Schedule_calibrations_calendar_pick=//td/table/tbody/tr[7]/td[7]
+Schedule_calibrations_hrs=//table/tbody/tr/td[3]/table/tbody/tr/td[1]/table/tbody/tr/td[1]/input
+Schedule_calibrations_min=//table/tbody/tr/td[3]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+Schedule_calibrations_sec=//table/tbody/tr/td[3]/table/tbody/tr/td[3]/table/tbody/tr/td[1]/input
+Schedule_calibrations_SessionDetails=//div/div[3]/div/div[3]/fieldset/table/tbody/tr[2]/td[2]/textarea
+Schedule_calibrations_InviteSave=//button[contains(text(),'Save')]
+Schedule_calibrations_okButton=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[2]/td/button
+Schedule_calibrations_Signout=//table/tbody/tr[1]/td/div/div/table/tbody/tr/td[9]/a
+Schedule_calibrations_LoginUserName=//input[@id='username']
+Schedule_calibrations_LoginPassowrd=//input[@id='password']
+Schedule_calibrations_SignButton=//table/tbody/tr[4]/td[2]/a
+Schedule_calibrations_Evaluation=//a[contains(text(),'Evaluation')]
+Schedule_calibrations_MyCalibrations=//td[contains(text(),'My Calibrations')]
+Schedule_calibrations_Call=//div/div[3]/div/div[2]/div/div[2]/div/div[4]/div/div/table/tbody[1]/tr/td[2]/div
+My_Calibration_Search=//div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/button
+My_Calibration_Clear=//div/table/tbody/tr[17]/td/table/tbody/tr/td[1]/button
+My_Calibration_Call=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[11]/td[2]/input
+My_Calibration_pop-up_Search=//table/tbody/tr[17]/td/table/tbody/tr/td[2]/button
+
+category_1_calibrations=//div[contains(text(),'Category1')]
+calibrations_cat1_ques1=//input[@value='614']
+# first category
+
+calibrations_commentbox_cat1=//div/div[2]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat1_2=//div/div[2]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat1_3=//div/div[2]/div/div/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+
+category_2A_calibrations=//div[contains(text(),'Category2A')]
+calibrations_cat2_ques6=//input[@value='629'] 
+
+#second category
+
+
+calibrations_commentbox_cat2=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat2_2=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat2_3=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat2_4=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[4]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat2_5=//div/div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+
+category_2B_calibrations=//div[contains(text(),'Category2B')]
+cat3_ques11_calibrations=//input[@value='644'] 
+
+#third category
+
+calibrations_commentbox_cat3=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat3_2=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat3_3=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[3]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat3_4=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[4]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+calibrations_commentbox_cat3_5=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[5]/td/div/table/tbody/tr/td[6]/table/tbody/tr/td[1]/textarea
+
+calibrations_calculate_button=//button[contains(text(),'Calculate')] 
+calculate_calibrations_score=//div/div[3]/div/table/tbody/tr/td[4]/div
+calibrations_submit_button=//div/div[3]/div/div[2]/div/div[2]/div/div[4]/table/tbody/tr/td[6]/button
+
+
+# calibration moderator
+
+calibrations_session=//td[contains(text(),'Calibration Sessions')]
+calibrations_session_search=//div[2]/div/div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[6]/button
+calibrations_session_popupClear=//table/tbody/tr[12]/td/table/tbody/tr/td[1]/button
+calibration_CallId=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[5]/td[2]/input
+calibration_Affiliation=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[7]/td[2]/select
+calibration_Popup_search=//table/tbody/tr[12]/td/table/tbody/tr/td[2]/button
+calibration_select_call=//div/div[4]/div/div/table/tbody[1]/tr[1]/td[2]/div
+calibration_review=//div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[5]/button
+calibration_review_Q1=//div[2]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[2]/div
+calibration_review_txtarea1=//div/div[3]/div/div/table/tbody/tr[3]/td/table/tbody/tr[2]/td[5]/table/tbody/tr/td[1]/textarea
+calibration_review_save_1=//table/tbody/tr[4]/td/table/tbody/tr/td/button
+calibration_review_Q4=//div[4]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[2]/div
+calibration_review_txtarea4=//table/tbody/tr[3]/td/table/tbody/tr[2]/td[5]/table/tbody/tr/td[1]/textarea
+calibration_review_save_4=//div/div/table/tbody/tr[4]/td/table/tbody/tr/td/button
+calibration_review_Q9=//div/div[6]/div/div/table/tbody/tr[3]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[2]/div
+calibration_review_txtarea9=//table/tbody/tr[3]/td/table/tbody/tr[2]/td[5]/table/tbody/tr/td[1]/textarea
+calibration_review_calculate=//button[contains(text(),'Calculate')]
+calibration_review_save_9=//div/div[3]/div/div/table/tbody/tr[4]/td/table/tbody/tr/td/button
+calibration_review_complete=//button[contains(text(),'Complete Review')]
+calibration_review_complete_textarea=//table/tbody/tr[2]/td[2]/textarea
+calibration_review_complete_submit=//table/tbody/tr[3]/td[2]/table/tbody/tr/td[1]/button
+
+
+
+
+
+
+
+
+
+
+#Roster UI
+
+Roster_Click=//html/body/div[3]/div[2]/div/div[2]/div/div[3]/table/tbody/tr[2]/td/table/tbody/tr/td[2]/a
+user_menu=//td[contains(text(),'Users')]
+user_link=//td[contains(text(),'Client User')]
+clickonframe=//html/body/div[3]/div[2]/div/div[4]/div/div[2]/div/div[3]/div/div[2]/div/div[2]/div
+Add_Button=//table/tbody/tr/td[5]/button
+Roster_Select_Affiliation=//table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/select
+Roster_Select_User_type=//table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/select
+Input_user_Name=//table/tbody/tr[4]/td[2]/table/tbody/tr/td[1]/input
+New_Password=//table/tbody/tr[5]/td[2]/table/tbody/tr/td[1]/input
+Conform_Password=//table/tbody/tr[6]/td[2]/table/tbody/tr/td[1]/input
+First_Name=//table/tbody/tr[7]/td[2]/table/tbody/tr/td[1]/input
+Last_Name=//table/tbody/tr[8]/td[2]/table/tbody/tr/td[1]/input
+External_id=//table/tbody/tr[9]/td[2]/table/tbody/tr/td[1]/input
+Authorized=//table/tbody/tr[10]/td[2]/table/tbody/tr/td[1]/select
+Phone_Number=//table/tbody/tr[12]/td[2]/table/tbody/tr/td[1]/input
+Next_Button=//table/tbody/tr[3]/td/table/tbody/tr/td[2]/button
+Add_Manager_role=//td/table/tbody/tr[2]/td/table/tbody/tr/td/select
+Assign_Role_Add_Button=//table/tbody/tr/td[2]/table/tbody/tr[2]/td/button
+Click_Next_Button=//table/tbody/tr[4]/td/table/tbody/tr/td[2]/button
+Click_Change_Button=//fieldset/table/tbody/tr/td[2]/table/tbody/tr/td[2]/button
+Search_Manager_name=//td/table/tbody/tr/td/table/tbody/tr/td/fieldset/table/tbody/tr/td[2]/table/tbody/tr/td/input
+Click_on_Search_button=//td/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td/button
+Select_user=//tr[2]/td/div/div[3]/div/div/table/tbody/tr/td/div
+Select_Calender_N =//tr[2]/td/div/div[3]/div/div/table/tbody/tr/td/div
+Select_date_M=//td[2]/table/tbody/tr/td[2]/table/tbody/tr/td/input
+Click_on_User_TextBox=//td/table/tbody/tr[4]/td[2]
+Click_on_Assign_Button=//td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[3]/button
+Click_on_next_button=//tr[5]/td/table/tbody/tr/td[2]/button
+Call_center_add_button=//td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td/button
+select_call_center=//table/tbody/tr/td/table/tbody/tr[1]/td/div/div/div/div[2]/table/tbody/tr/td[2]/div/div
+Click_On_Call_center_Ok_Button=//table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Click_Finish_button=//tr[2]/td/table/tbody/tr/td[2]/button
+
+#Search User Roster UI
+Put_the_User_Name=//table/tbody/tr[1]/td/fieldset/table/tbody/tr[4]/td[2]/table/tbody/tr/td[1]/input
+Click_Button=//table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+
+# Manage Roster
+click_manager_roster=//td[contains(text(),'Manage Roster')]
+click_extract_link=//td[contains(text(),'Extracts')]
+click_team_hierarchy=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[1]/td/div
+click_Call_center_hierarchy=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[2]/td/div
+
+
+
+
+#Client Proxy
+
+ClientProxy=//table/tbody/tr[1]/td[2]/input
+ProxySearch=//table/tbody/tr[5]/td[2]/input
+ProxySignin=//table/tbody/tr/td[1]/form/input[2]
+
+#Reports
+reportlink=//table/tbody/tr/td[2]/a[contains(text(),'Reports')]
+Evaluationlink=//table/tbody/tr/td[contains(text(),'Evaluation')]
+agentevaluationsummary=//table/tbody/tr[2]/td/div/div/div[contains(text(),'Agent Evaluation Summary')]
+evaluationdetail=//table/tbody/tr[2]/td/div/div/div[contains(text(),'Team Performance')]
+monthtodate=//div[2]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div/div[2]/div/div/table/tbody/tr/td/table/tbody/tr[5]/td/span/label
+onemonth=//div[2]/div/div[3]/div/div[3]/div/div[2]/div/div[4]/div/div[2]/div/div/table/tbody/tr/td/table/tbody/tr[6]/td/span/label
+runreport=//table/tbody/tr/td[1]/button
+#//div[4]/div/div[2]/div/div[3]/table/tbody/tr/td[1]/button
+reportssublink=//table/tbody/tr/td[3]/div[contains(text(),'Reports')]
+call_date=//body/div[1]/span[4]/span
+report_calldate_query
+ed_report_calldate_query
+es_agentcount_calldate_query
+tp_agentcount_calldate_query
+es_evaluation_score_avg_query
+es_evaluation_score_wa_avg_query
+tp_evaluation_score_avg_query
+tp_evaluation_score_wa_avg_query
+TP_training_call_query
+ES_training_call_query
+TP_evaluations_per_agent_query
+ES_evaluations_per_agent_query
+report_score_calldate=//body/div[1]/div/div[2]/div[1]/span[1]/span
+ed_report_score_calldate=//body/div[1]/div/div[2]/div[1]/span[1]/span
+ES_Agents_Evaluated=//div[2]/div[3]/span[1]/span
+TP_Agents_Evaluated=//div[2]/div[3]/span[1]/span
+ES_evaluation_score_avg=//div/div[2]/div[1]/span[2]/span
+ES_evaluation_score_wa_avg=//div/div[2]/div[3]/span[4]/span
+TP_evaluation_score_avg=//div/div[2]/div[1]/span[2]/span
+TP_evaluation_score_wa_avg=//div/div[2]/div[3]/span[4]/span
+TP_training_call=//div/div[2]/div[1]/span[6]/span
+ES_training_call=//div/div[2]/div[1]/span[6]/span
+TP_evaluations_per_agent=//div[2]/div[2]/span[3]/span
+ES_evaluations_per_agent=//div[2]/div[2]/span[3]/span
+
+# used for report header validation
+report_header=//div/div[4]/div/div[2]/table/tbody/tr[1]/td/table/tbody/tr[1]/td/div
+vendor_header_reports=//div[1]/div[1]/span[2]/span
+location_header_reports=//div[1]/div[2]/span[2]/span
+campaign_header_reports=//div[1]/div[3]/span[2]/span
+
+#signout
+
+signout=//table/tbody/tr/td[9]/a
+
+#Configuration UI
+
+# Call Provision
+config_Click=//table/tbody/tr[2]/td/table/tbody/tr/td[3]/a
+Click_Call_Provision=//td[contains(text(),'Call Provisioning')]
+Click_list_plolicy=//td[contains(text(),'List Policies')]
+click_policy_Add_Button=//button[@type='button']
+Input_policy_name=//table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+Save_Policy_button=//table/tbody/tr[3]/td/table/tbody/tr/td[1]/button
+agent_call_frequency_select=//div[3]/div/div[3]/div/div/table/tbody/tr/td/div
+Select_policy_double_click=//td/div/div[2]/div/div[3]/div/div/table/tbody/tr/td/div
+Click_Assign_Arrow=//table/tbody/tr[2]/td/div/div[4]/table/tbody/tr[1]/td/button
+double_click_on_assign_policy=//table/tbody/tr[2]/td/div/div[2]/div/div[3]/div/div/table/tbody[1]/tr/td/div
+Input_call_count=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[1]/td/fieldset/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+input_Duration=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[1]/td/fieldset/table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/input
+click_save_parameters=//table/tbody/tr[2]/td[2]/div/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+
+#Agent Selection
+Click_Agent_selection=//td[contains(text(),'Agent Selection')]
+Click_list_rule=//td[contains(text(),'List Rules')]
+click_add_Agent_Selection_Button=//div[3]/div/div[2]/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td/button
+Agent_selection_rule_name=//table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+enabled_Agent_selection_rule=//span/input
+Check_Phone=//tr[2]/td/fieldset/table/tbody/tr/td[2]/span/input
+Check_Email=//tr[2]/td/fieldset/table/tbody/tr[2]/td[2]/span/input
+Check_Vendor=//tr[3]/td[2]/span/input
+Check_external_id=//tr[4]/td[2]/span/input
+Check_user_name=//tr[5]/td[2]/span/input
+Check_last_name=//tr[6]/td[2]/span/input
+Clik_Save_Button=//tr[3]/td/table/tbody/tr/td/button
+
+# Settings
+#Add Call Center Hierarchy
+click_on_Settings_link=//td[contains(text(),'Settings')]
+Select_menu_List_Management=//td[contains(text(),'List Management')]
+Select_list=//td[contains(text(),'Lists')]
+Select_vendor=//html/body/div[3]/div[2]/div/div[4]/div/div[2]/div/div/div[3]/div/div[4]/div/div[2]/div/div[3]/div/div/table/tbody[1]/tr[1]/td[2]/div
+Click_Add_Vendor_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/button
+input_Vendor_name=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+input_Vendor_desc=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/input
+input_vendor_code=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[3]/td[2]/table/tbody/tr/td[1]/input
+click_Vendor_save_button=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Input_registred_vendor=//table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+Click_on_Search_Button=//table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[3]/button
+finally_save_vendor=//table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Select_location=//html/body/div[3]/div[2]/div/div[4]/div/div[2]/div/div/div[3]/div/div[4]/div/div[2]/div/div[3]/div/div/table/tbody[1]/tr[2]/td[2]/div
+Click_Add_location_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/button
+input_location_name=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+input_location_desc=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/input
+input_location_code=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[3]/td[2]/table/tbody/tr/td[1]/input
+click_location_save_button=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Input_registred_location=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+Click_on_Search_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[3]/button
+finally_save_location=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Select_Campaign=//html/body/div[3]/div[2]/div/div[4]/div/div[2]/div/div/div[3]/div/div[4]/div/div[2]/div/div[3]/div/div/table/tbody[1]/tr[3]/td[2]/div
+Click_Add_Campaign_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/button
+input_Campaign_name=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+input_Campaign_desc=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/input
+input_Campaign_code=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[3]/td[2]/table/tbody/tr/td[1]/input
+click_Campaign_save_button=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Input_registred_Campaign=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+Click_on_Search_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[3]/button
+finally_save_Campaign=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Select_LOB=//html/body/div[3]/div[2]/div/div[4]/div/div[2]/div/div/div[3]/div/div[4]/div/div[2]/div/div[3]/div/div/table/tbody[1]/tr[4]/td[2]/div
+Click_Add_LOB_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/button
+input_LOB_name=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+input_LOB_desc=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/input
+input_LOB_code=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[3]/td[2]/table/tbody/tr/td[1]/input
+click_LOB_save_button=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Input_registred_LOB=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+Click_on_Search_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[3]/button
+finally_save_LOB=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Select_CallType=//html/body/div[3]/div[2]/div/div[4]/div/div[2]/div/div/div[3]/div/div[4]/div/div[2]/div/div[3]/div/div/table/tbody[1]/tr[5]/td[2]/div
+Click_Add_CallType_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/button
+input_CallType_name=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+input_CallType_desc=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[2]/td[2]/table/tbody/tr/td[1]/input
+input_CallType_code=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[1]/td/fieldset/table/tbody/tr[3]/td[2]/table/tbody/tr/td[1]/input
+click_CallType_save_button=//html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+Input_registred_CallType=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[2]/table/tbody/tr/td[1]/input
+Click_on_Search_Button=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[3]/td/div/div[2]/table/tbody/tr/td[2]/table/tbody/tr/td[3]/button
+finally_save_CallType=//html/body/div[4]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[1]/button
+
+
+# Custom Fields
+Select_item=//div[5]/div/table/tbody/tr[2]/td[2]/div/div/table/tbody/tr/td
+Select_menu_Custom_Fields=//td[contains(text(),'Custom Fields')]
+select_Custom_fields=//table/tbody/tr[2]/td/div/div[1]/div/div[3]/div/div/table/tbody[1]/tr[1]/td[2]/div
+Input_Custom_fields_name=//table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+Click_Save_Custom=//button[contains(text(),'Ok')]
+select_Measure_tab=//table/tbody/tr[1]/td/table/tbody/tr/td[3]/div/div
+select_Custom_40=//table/tbody/tr[2]/td/div/div[2]/div/div[3]/div/div/table/tbody[1]/tr[1]/td[2]/div
+Input_Custom_Fields_Mesaure=//table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+select_Ancillary_Fields_tab=//table/tbody/tr[1]/td/table/tbody/tr/td[4]/div/div
+select_Custom_30=//table/tbody/tr[2]/td/div/div[3]/div/div[3]/div/div/table/tbody[1]/tr[1]/td[2]/div
+Input_Custom_Fields_Ancillary=//table/tbody/tr/td/fieldset/table/tbody/tr[1]/td[2]/table/tbody/tr/td[1]/input
+
+
+

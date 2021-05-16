@@ -1,0 +1,81 @@
+package util;
+
+import java.net.InetAddress;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import testscript.DriverScript;
+
+/**
+ * @author Rahul.Arora
+ *
+ */
+public class TestConfig{
+
+
+	public static String server="172.17.3.20";
+	public static String from = "support@hyperquality.com";
+	public static String[] to ={"rahul.arora@hyperquality.com","anshul.singh@hyperquality.com","satya.prakash@hyperquality.com"};
+	
+	public static String subject = "ClearMetrix Production Validation - Level 2 (CPV - L2)";
+	public static String subjectattachment = "CM3.0 Database Validation report";
+	public static String messageBody ="<img src=\"https://monitor.clearmetrix.com/images/cm_logo.png\"><br><br>"+ "The Reports and primary functionality of the Clear Metrix system have been validated in production. If there are any failures on this report they are likely to be production issues and should be investigated right away. Results for reports can be found on the attached spreadsheet, and for the application using the link just below.  Previous validation results can be found using the link further down." +
+			" <br><br><b>Link for this validation</b>"+"<br>"+"http://"+TestUtil.Handeler()+":8282"+"/htmlpages/index"+DriverScript.strDate+".html"+"<p> <b>To search for previous validation results</b><br>http://"+TestUtil.Handeler()+":8282"+"/ReportView.jsp </p>"+"<p> <b>How are these tested?-</b> In order to validate reports values are pulled from the database,  and then from an executed report and compared. The application is checked by automated scripts written by the QA team which logs on to the demo client in production.<br><br><br>"+
+	"<b>What is Being Validated?</b><br><br><br>"+
+
+"<b><div style=\"color:#0000FF;\">Evaluation UI</div></b><br>"+
+"<ul><li>Call Registration</li>"+
+"<li>Evaluations</li>"+
+"<li>Audits</li>"+
+"<li>Calibrations</li></ul><br><br>"+
+
+"<b><div style=\"color:#0000FF;\">Roster UI</div></b><br>"+
+"<ul><li>Adding a new Client user</li>"+
+"<li>Search the added user</li>"+
+"<li>Go through remaining roster modules</li>"+
+"<li>Extract call center and roster hierarchy</li></ul><br><br>"+
+
+"<b><div style=\"color:#0000FF;\">Configuration UI</div></b><br>"+
+"<ul><li>Call Provisioning</li>"+
+"<li>Agent Selection</li>"+
+"<li>Vendor/Campaign/Location/CallType/Lob addition</li>"+
+"<li>Custom fields addition</li></ul><br><br>"+
+
+"<b><div style=\"color:#0000FF;\">Reports</div></b><br>"+
+"<ul><li>Agent Evaluation summary report</li>"+
+"<li>Team Performance report</li></ul><br><br>"+
+
+"<b><div style=\"color:#0000FF;\">Database validation</div></b><br>"+
+"<ul><li>Report Headers data that includes Call count, QA Scores, Agent counts, training calls etc validation from database</li>"+
+"<li>Evaluation scores while evaluating a call validation from database</li>"+
+"<li>Audit scores while auditing a call validation from database</li></ul><br><br>"+
+
+"<b>Thanks,</b><br>QA Automation";
+	
+		
+		
+	public static String driver="net.sourceforge.jtds.jdbc.Driver"; 
+	public static String dbConnectionUrl="jdbc:jtds:sqlserver://172.16.150.127;DatabaseName=monitor_eval"; 
+	public static String dbUserName="sa"; 
+	public static String dbPassword="$ql$erver!!1"; 
+	
+	public static String mysqldriver="com.mysql.jdbc.Driver";
+	public static String mysqluserName = "root";
+	public static String mysqlpassword = "passw0rd";
+	public static String mysqlurl = "jdbc:mysql://172.16.150.111/monitor_dm";
+	//public static String attachmentPath="C:/CM3.0/app/test/Framework/AutomationBvt_Hybrid/Reports.zip";
+	//public static String attachmentPath="C:/CM3.0/app/test/Framework/testweb/WebContent/webpages/index"+DriverScript.year+"_"+DriverScript.date+"_"+(DriverScript.month+1)+"_"+DriverScript.day+"_"+DriverScript.min+"_" +DriverScript.sec+".html";
+	//public static String attachmentPath="C:/CM3.0/app/test/Framework/testweb/WebContent/webpages/index"+DriverScript.year+"_"+DriverScript.date+"_"+(DriverScript.month+1)+"_"+DriverScript.day+"_"+DriverScript.min+"_" +DriverScript.sec+".html";
+	//public static String attachmentPath="C:/CMAutomation/tomcat-6.0/webapps/ROOT/screenshots/"+DriverScript.mailscreenshotpath+".jpeg";
+	public static String attachmentPath=DriverScript.mailscreenshotpath+".jpeg";
+	public static String attachmentName="Error.jpeg";
+	//public static String filepath="C:/CM3.0/app/test/Framework/testweb/WebContent/webpages";
+	
+	
+	
+	
+	
+	
+	
+	
+}
